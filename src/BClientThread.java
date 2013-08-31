@@ -21,10 +21,16 @@ public class BClientThread extends Thread {
 			try {
 				inFromClient = new DataInputStream(
 						client_socket.getInputStream());
-				clientMsg = inFromClient.readLine();
+				clientMsg = inFromClient.readUTF();
 				if (clientMsg == null)
 					break;
 				System.out.println(clientMsg);
+				// check is client answer right
+				if (clientMsg.equalsIgnoreCase(Info.currentQuestion.answer)) {
+					Info.broadCast("Winner is: "
+							+ client_socket.getInetAddress());
+					Info.currentQuestion.isAnswer = true;
+				}
 				Info.broadCast(clientMsg);
 			} catch (IOException e) {
 				e.printStackTrace();

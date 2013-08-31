@@ -1,4 +1,3 @@
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,7 +14,7 @@ public class BServer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		new QuestionFeeder();
+		new QuestionFeeder().start();;
 
 	}
 

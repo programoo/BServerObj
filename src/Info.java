@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 public class Info {
 	public static ArrayList<Client> clientList = new ArrayList<Client>();
-
+	public static ArrayList<Question> questionList = new ArrayList<Question>();
+	public static Question currentQuestion;
+	
+	
 	public static void broadCast(String msg) {
 		ArrayList<Client> nullClientList = new ArrayList<Client>();
 		for (int i = 0; i < Info.clientList.size(); i++) {
@@ -14,13 +17,8 @@ public class Info {
 				else {
 					new DataOutputStream(
 							Info.clientList.get(i).clientSocket
-									.getOutputStream()).writeBytes("[" + msg
-							+ "]\n");
-					
-					new DataOutputStream(
-							Info.clientList.get(i).clientSocket
-									.getOutputStream()).writeBytes("[" + Info.clientList.size()
-							+ "]\n");
+									.getOutputStream()).writeUTF(msg+"\n");
+	
 				}
 
 			} catch (IOException e) {
