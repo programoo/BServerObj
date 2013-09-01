@@ -80,10 +80,10 @@ public class QuestionFeeder extends Thread {
 			String str;
 
 			while ((str = in.readLine()) != null) {
-				String strSplit[] = str.split("[*]");
+				String strSplit[] = str.split("[?]");
 				if (strSplit.length == 2) {
 					Info.questionList
-							.add(new Question(strSplit[0], strSplit[1]));
+							.add(new Question(strSplit[0].replace("*",""), strSplit[1]));
 				}
 				//System.out.println(strSplit[0]);
 			}
