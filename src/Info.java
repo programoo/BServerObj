@@ -17,7 +17,7 @@ public class Info {
 				else {
 					new DataOutputStream(
 							Info.clientList.get(i).clientSocket
-									.getOutputStream()).writeUTF(msg+"\n");
+									.getOutputStream()).writeUTF(","+msg+",\n");
 	
 				}
 

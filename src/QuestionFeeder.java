@@ -28,23 +28,23 @@ public class QuestionFeeder extends Thread {
 				 continue;
 			 }
 			 
-			 String hint1 = hint(Info.currentQuestion.answer,30);
+			 String hint1 = hint(Info.currentQuestion.answer,33);
 			 Info.broadCast(hint1);
 			 qSleep(3000);
 			 if(Info.currentQuestion.isAnswer){
 				 Info.currentQuestion.isAnswer = false;
 				 continue;
 			 }
-			 String hint2 = hint(Info.currentQuestion.answer,60);
+			 String hint2 = hint(Info.currentQuestion.answer,66);
 			 Info.broadCast(hint2);
 			 qSleep(3000);
 			 if(Info.currentQuestion.isAnswer){
 				 Info.currentQuestion.isAnswer = false;
 				 continue;
 			 }
-			 String hint3 = hint(Info.currentQuestion.answer,90);
+			 String hint3 = hint(Info.currentQuestion.answer,100);
 			 Info.broadCast(hint3);
-			 qSleep(3000);
+			 qSleep(500);
 			 
 			 System.out.println(Info.currentQuestion.question);
 		}
